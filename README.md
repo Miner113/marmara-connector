@@ -28,6 +28,36 @@ For more detailed information on creating Marmara credit loops, kindly refer to 
 - To install/download Marmara Connector, follow the [Marmara Connector Installation Guidelines](https://github.com/marmarachain/marmara-connector/wiki).
 - For development purposes, follow the [Developer Guidelines for Marmara Connector](https://github.com/marmarachain/marmara-connector/wiki/Getting-Started-with-Marmara-Connector-Development).
 
+### Development
+
+sudo apt install python3.10 python3.10-dev python3.10-venv
+
+Create a virtual environment:
+```
+python3.10 -m venv myvenv
+```
+You can install pyQt5 and PyInstaller using pip:
+```
+pip3 install pyQt5 PyInstaller
+```
+
+If you experience problems packaging the app, then update your PyInstaller and hooks package the latest versions using
+
+```
+pip3 install --upgrade PyInstaller pyinstaller-hooks-contrib
+```
+
+To run the PyInstaller build:
+
+```
+pyinstaller marmara-connector.spec
+```
+
+To compile our resources.qrc file to a Python file named resources.py we can use:
+```
+pyrcc5 resources.qrc -o resources.py
+```
+
 ## Contact
 - B. Gültekin Çetiner [![twitter](https://img.shields.io/twitter/follow/drcetiner?style=social)](https://twitter.com/drcetiner )
 
