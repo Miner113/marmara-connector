@@ -18,6 +18,9 @@ class Ui_MainWindow(object):
         MainWindow.resize(960, 720)
         MainWindow.setMouseTracking(False)
         MainWindow.setWindowTitle("Marmara Connector")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -2764,9 +2767,9 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.main_tab.setCurrentIndex(1)
+        self.main_tab.setCurrentIndex(0)
         self.login_stackedWidget.setCurrentIndex(0)
-        self.mcl_tab.setCurrentIndex(3)
+        self.mcl_tab.setCurrentIndex(2)
         self.chain_stackedWidget.setCurrentIndex(0)
         self.creditloop_tabWidget.setCurrentIndex(0)
         self.stats_tabWidget.setCurrentIndex(0)
@@ -3143,6 +3146,7 @@ class Ui_MainWindow(object):
         self.actionCheck_for_Update.setText(_translate("MainWindow", "Check for Update"))
         self.actionAppearances.setText(_translate("MainWindow", "Appearances"))
         self.actionSee_chain_Log_File.setText(_translate("MainWindow", "See chain Log File"))
+from res import resources_rc
 
 
 if __name__ == "__main__":

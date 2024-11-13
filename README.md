@@ -53,9 +53,9 @@ To run the PyInstaller build:
 pyinstaller marmara-connector.spec
 ```
 
-To compile our resources.qrc file to a Python file named resources.py we can use:
+To compile our resources.qrc file to a Python file named resources_rc.py we can use:
 ```
-pyrcc5 resources.qrc -o resources.py
+pyrcc5 resources.qrc -o resources_rc.py
 ```
 
 ## Contact
