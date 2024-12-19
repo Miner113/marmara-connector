@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'qtguidesign.ui'
+# Form implementation generated from reading ui file '.\ui\mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -491,9 +491,9 @@ class Ui_MainWindow(object):
         self.passphrase_TextEdit = QtWidgets.QPlainTextEdit(self.add_seed_address_frame)
         self.passphrase_TextEdit.setMinimumSize(QtCore.QSize(600, 0))
         self.passphrase_TextEdit.setMaximumSize(QtCore.QSize(16777215, 80))
-        self.passphrase_TextEdit.setTabStopWidth(80)
         self.passphrase_TextEdit.setCursorWidth(1)
         self.passphrase_TextEdit.setCenterOnScroll(False)
+        self.passphrase_TextEdit.setProperty("tabStopWidth", 80)
         self.passphrase_TextEdit.setObjectName("passphrase_TextEdit")
         self.gridLayout_54.addWidget(self.passphrase_TextEdit, 1, 0, 1, 2)
         self.create_seed_label = QtWidgets.QLabel(self.add_seed_address_frame)
@@ -2560,6 +2560,7 @@ class Ui_MainWindow(object):
         self.gridLayout_24.addItem(spacerItem148, 0, 5, 2, 1)
         self.coffee_icon_label = QtWidgets.QLabel(self.supportus_frame)
         self.coffee_icon_label.setText("")
+        self.coffee_icon_label.setPixmap(QtGui.QPixmap(":/images/Coffee-icon.png"))
         self.coffee_icon_label.setAlignment(QtCore.Qt.AlignCenter)
         self.coffee_icon_label.setObjectName("coffee_icon_label")
         self.gridLayout_24.addWidget(self.coffee_icon_label, 0, 2, 1, 1)
@@ -2769,7 +2770,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.main_tab.setCurrentIndex(0)
         self.login_stackedWidget.setCurrentIndex(0)
-        self.mcl_tab.setCurrentIndex(2)
+        self.mcl_tab.setCurrentIndex(0)
         self.chain_stackedWidget.setCurrentIndex(0)
         self.creditloop_tabWidget.setCurrentIndex(0)
         self.stats_tabWidget.setCurrentIndex(0)
@@ -3146,7 +3147,7 @@ class Ui_MainWindow(object):
         self.actionCheck_for_Update.setText(_translate("MainWindow", "Check for Update"))
         self.actionAppearances.setText(_translate("MainWindow", "Appearances"))
         self.actionSee_chain_Log_File.setText(_translate("MainWindow", "See chain Log File"))
-from res import resources_rc
+import resources_rc
 
 
 if __name__ == "__main__":

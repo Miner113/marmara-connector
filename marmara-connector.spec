@@ -1,9 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
 added_files = [
-         ( 'resources/icons/*.*', 'icons' ),
-         ( 'resources/language/*.*', 'language' ),
-         ( 'resources/images/*.png', 'images' ),
-         ( 'resources/styles/*.qss', 'styles' )
+         ( '/language/*.*', 'language' ),
+         ( '/images/*.png', 'images' ),
+         ( '/styles/*.qss', 'styles' )
          ]
 
 a = Analysis(

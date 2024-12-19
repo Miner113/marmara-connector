@@ -20,7 +20,7 @@
    <string notr="true">Marmara Connector</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../res/resources.qrc">
+   <iconset resource="../resources.qrc">
     <normaloff>:/images/icon.ico</normaloff>:/images/icon.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -796,7 +796,7 @@
            <enum>QTabWidget::Rounded</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <property name="iconSize">
            <size>
@@ -1327,9 +1327,6 @@
                          <height>80</height>
                         </size>
                        </property>
-                       <property name="tabStopWidth">
-                        <number>80</number>
-                       </property>
                        <property name="cursorWidth">
                         <number>1</number>
                        </property>
@@ -1338,6 +1335,9 @@
                        </property>
                        <property name="placeholderText">
                         <string>Enter 12 words with spaces between them. Do not input any special character. </string>
+                       </property>
+                       <property name="tabStopWidth" stdset="0">
+                        <number>80</number>
                        </property>
                       </widget>
                      </item>
@@ -6907,6 +6907,9 @@
                 <property name="text">
                  <string/>
                 </property>
+                <property name="pixmap">
+                 <pixmap resource="../resources.qrc">:/images/Coffee-icon.png</pixmap>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -7455,7 +7458,7 @@
   <tabstop>stopchain_button</tabstop>
  </tabstops>
  <resources>
-  <include location="../res/resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections>
   <connection>
