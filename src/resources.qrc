@@ -1,27 +1,19 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-    <qresource prefix="images">
+    <qresource prefix="/images">
         <file alias="arrow-double-icon.png">images/arrow-double-icon.png</file>
         <file alias="AR.png">images/AR.png</file>
         <file alias="EN.png">images/EN.png</file>
         <file alias="TR.png">images/TR.png</file>
         <file alias="circle-active.png">images/circle-active.png</file>
+        <file alias="incircle-active.png">images/circle-inactive.png</file>
         <file alias="Coffee-icon.png">images/Coffee-icon.png</file>
         <file alias="connector-loader.gif">images/connector-loader.gif</file>
         <file alias="fluid-loader.gif">images/fluid-loader.gif</file>
+        <file alias="icon.ico">images/icon.ico</file>
         <file alias="mcl_logo.png">images/mcl_logo.png</file>
         <file alias="start_icon.png">images/start_icon.png</file>
         <file alias="stop_icon.png">images/stop_icon.png</file>
         <file alias="warning-icon.png">images/warning-icon.png</file>
-        <file alias="icon.ico">icons/icon.ico</file>
-        <file alias="16.png">icons/16.png</file>
-        <file alias="24.png">icons/24.png</file>
-        <file alias="32.png">icons/32.png</file>
-        <file alias="48.png">icons/48.png</file>
-        <file alias="64.png">icons/64.png</file>
-        <file alias="128.png">icons/128.png</file>
-        <file alias="256.png">icons/256.png</file>
-        <file alias="512.png">icons/512.png</file>
-        <file alias="1024.png">icons/1024.png</file>
     </qresource>
 </RCC>

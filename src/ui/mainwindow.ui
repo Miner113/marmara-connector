@@ -26,14 +26,11 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTabWidget" name="main_tab">
+     <widget class="QStackedWidget" name="main_tab">
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="login_tab">
-       <attribute name="title">
-        <string>Login</string>
-       </attribute>
+      <widget class="QWidget" name="login_tab" native="true">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="4" column="1">
          <widget class="QFrame" name="home_frame">
@@ -770,10 +767,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="marmara_tab">
-       <attribute name="title">
-        <string>Marmara</string>
-       </attribute>
+      <widget class="QWidget" name="main_tab" native="true">
        <layout class="QGridLayout" name="gridLayout_8">
         <item row="0" column="0" rowspan="3">
          <widget class="QTabWidget" name="mcl_tab">
@@ -922,6 +916,16 @@
                       <property name="text">
                        <string>Stop Chain</string>
                       </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/images/stop_icon.png</normaloff>:/images/stop_icon.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>32</width>
+                        <height>32</height>
+                       </size>
+                      </property>
                      </widget>
                     </item>
                     <item row="0" column="3">
@@ -955,6 +959,16 @@
                      <widget class="QPushButton" name="startchain_button">
                       <property name="text">
                        <string>Start Chain</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../resources.qrc">
+                        <normaloff>:/images/start_icon.png</normaloff>:/images/start_icon.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>32</width>
+                        <height>32</height>
+                       </size>
                       </property>
                      </widget>
                     </item>
@@ -6018,6 +6032,9 @@
                 <property name="text">
                  <string/>
                 </property>
+                <property name="pixmap">
+                 <pixmap resource="../resources.qrc">:/images/arrow-double-icon.png</pixmap>
+                </property>
                </widget>
               </item>
              </layout>
@@ -6392,7 +6409,7 @@
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QGridLayout" name="gridLayout_17">
+             <layout class="QGridLayout" name="mininggrid_Layout">
               <property name="topMargin">
                <number>6</number>
               </property>
@@ -6527,6 +6544,9 @@
                 <property name="text">
                  <string/>
                 </property>
+                <property name="pixmap">
+                 <pixmap resource="../resources.qrc">:/images/incircle-active.png</pixmap>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -6574,6 +6594,9 @@
                 <property name="text">
                  <string/>
                 </property>
+                <property name="pixmap">
+                 <pixmap resource="../resources.qrc">:/images/incircle-active.png</pixmap>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -6583,6 +6606,9 @@
                <widget class="QLabel" name="connections_warning_label">
                 <property name="text">
                  <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../resources.qrc">:/images/warning-icon.png</pixmap>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -6845,6 +6871,9 @@
               </property>
               <item row="1" column="1" colspan="4">
                <widget class="QPushButton" name="support_pushButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Support</string>
                 </property>
@@ -7153,10 +7182,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="install_tab">
-       <attribute name="title">
-        <string>Install</string>
-       </attribute>
+      <widget class="QWidget" name="install_tab" native="true">
        <layout class="QGridLayout" name="gridLayout_27">
         <item row="2" column="1">
          <spacer name="verticalSpacer_37">
@@ -7319,12 +7345,12 @@
    <property name="defaultUp">
     <bool>false</bool>
    </property>
-   <widget class="QMenu" name="menuSettings">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Settings</string>
+     <string>File</string>
     </property>
-    <addaction name="actionLanguage_Selection"/>
-    <addaction name="actionAppearances"/>
+    <addaction name="actionToolbar"/>
+    <addaction name="actionPreferances"/>
     <addaction name="actionLogout"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
@@ -7345,17 +7371,22 @@
     <addaction name="actionAbout"/>
     <addaction name="actionCheck_for_Update"/>
    </widget>
-   <addaction name="menuSettings"/>
+   <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
-  <action name="actionLanguage_Selection">
-   <property name="text">
-    <string>Language Selection</string>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
    </property>
-   <property name="menuRole">
-    <enum>QAction::ApplicationSpecificRole</enum>
-   </property>
-  </action>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionLogout"/>
+   <addaction name="actionPreferances"/>
+  </widget>
   <action name="actionConsole">
    <property name="text">
     <string>Console</string>
@@ -7395,14 +7426,22 @@
     <string>Check for Update</string>
    </property>
   </action>
-  <action name="actionAppearances">
-   <property name="text">
-    <string>Appearances</string>
-   </property>
-  </action>
   <action name="actionSee_chain_Log_File">
    <property name="text">
     <string>See chain Log File</string>
+   </property>
+  </action>
+  <action name="actionPreferances">
+   <property name="text">
+    <string>Preferances ...</string>
+   </property>
+  </action>
+  <action name="actionToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toolbar</string>
    </property>
   </action>
  </widget>

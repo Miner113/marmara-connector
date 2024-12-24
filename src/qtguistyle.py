@@ -1,53 +1,26 @@
-from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtCore import Qt, QRect, QSize
-from PyQt5.QtGui import QPixmap, QFontDatabase, QFont
-from mainwindow import Ui_MainWindow
+from PyQt5.QtGui import QIcon, QFont, QPainter, QBrush, QColor, QPen
+from PyQt5.QtWidgets import QPushButton, QHBoxLayout
+from ui_mainwindow import Ui_MainWindow
 import qtawesome as qta
-
-icon_path = "./images"
-style_path = "./styles"
 
 
 class GuiStyle(Ui_MainWindow):
     def __init__(self):
+        super().__init__()
         self.setupUi(self)  # loading from mainwindow.py
-        # setting params
-        self.icon_path = icon_path
-        logo = QPixmap(self.icon_path + '/mcl_logo.png')
-        self.logo_label.setPixmap(logo)
-        # Chain page
-        self.stopchain_button.setIcon(QtGui.QIcon(self.icon_path + "/stop_icon.png"))
-        self.stopchain_button.setIconSize(QSize(32, 32))
-        self.startchain_button.setIcon(QtGui.QIcon(self.icon_path + "/start_icon.png"))
-        self.startchain_button.setIconSize(QSize(32, 32))
         # Side panel
-        self.inactive_icon_pixmap = QPixmap(self.icon_path + '/circle-inactive.png')
-        self.active_icon_pixmap = QPixmap(self.icon_path + '/circle-active.png')
-        self.chainstatus_label_value.setPixmap(self.inactive_icon_pixmap)
-        self.chainsync_label_value.setPixmap(self.inactive_icon_pixmap)
-        self.coffee_pixmap = QPixmap(self.icon_path + '/Coffee-icon.png')
-        self.coffee_icon_label.setPixmap(self.coffee_pixmap)
         self.staking_button.setVisible(False)
-        self.staking_button = ToggleSwitch(self.miningstatus_frame)
-        self.staking_button.setObjectName("staking_button")
-        self.gridLayout_17.addWidget(self.staking_button, 1, 1, 1, 1)
+        self.staking_button = ToggleSwitch(self.miningstatus_frame)  # Add custom Toggle button
+        self.mininggrid_Layout.addWidget(self.staking_button, 1, 1, 1, 1)
         self.mining_button.setVisible(False)
-        self.mining_button = ToggleSwitch(self.miningstatus_frame)
-        self.mining_button.setObjectName("mining_button")
-        self.support_pushButton.setText('Support')
-        self.support_pushButton.setEnabled(False)
-        self.connections_warning_label.setPixmap(QPixmap(self.icon_path + '/warning-icon.png'))
-        self.connections_warning_label.setVisible(True)
+        self.mining_button = ToggleSwitch(self.miningstatus_frame)  # Add custom Toggle button
         self.walletsummary_hide_button.setIcon(qta.icon('ei.eye-close', color='#cc2900'))
         # Stats
-        self.gridLayout_17.addWidget(self.mining_button, 3, 1, 1, 1)
+        self.mininggrid_Layout.addWidget(self.mining_button, 3, 1, 1, 1)
         self.stats_pie_frame.setContentsMargins(0, 0, 0, 0)
-        self.stats_layout = QtWidgets.QHBoxLayout(self.stats_pie_frame)
+        self.stats_layout = QHBoxLayout(self.stats_pie_frame)
         self.stats_layout.setContentsMargins(0, 0, 0, 0)
-        # Market
-        self.exchange_pixmap = QPixmap(self.icon_path + '/arrow-double-icon.png')
-        self.exchange_label_icon.setPixmap(self.exchange_pixmap)
-        # self.set_icon_color('black')
 
     def set_icon_color(self, color):
         # Login remote tab
@@ -95,8 +68,9 @@ class GuiStyle(Ui_MainWindow):
         self.actionLogout.setIcon(qta.icon('mdi.logout', color=color))
         self.menuDebug.setIcon(qta.icon('fa.bug', color=color))
         self.actionAbout.setIcon(qta.icon('fa.info', color=color))
-        self.actionLanguage_Selection.setIcon(qta.icon('ei.flag', color=color))
-        self.actionAppearances.setIcon(qta.icon('fa.paint-brush', color=color))
+        self.actionPreferances.setIcon(qta.icon('ph.gear-six', color=color))
+        # self.actionLanguage_Selection.setIcon(qta.icon('ei.flag', color=color))
+        # self.actionAppearances.setIcon(qta.icon('fa.paint-brush', color=color))
         self.actionSee_Log_File.setIcon(qta.icon('mdi.file-document-outline', color=color))
         self.actionSee_chain_Log_File.setIcon(qta.icon('mdi.file-document-outline', color=color))
         self.actionCheck_for_Update.setIcon(qta.icon('mdi.open-in-app', color=color))
@@ -128,9 +102,9 @@ class GuiStyle(Ui_MainWindow):
         self.website_button.setIcon(qta.icon('mdi.web', color=color))
         self.website_button.setIconSize(QSize(18, 18))
         # Wallet page button icons
-        self.lock_button.setIcon(QtGui.QIcon(qta.icon('fa5s.lock', color=color)))
+        self.lock_button.setIcon(QIcon(qta.icon('fa5s.lock', color=color)))
         self.lock_button.setIconSize(QSize(32, 32))
-        self.unlock_button.setIcon(QtGui.QIcon(qta.icon('fa5s.unlock-alt', color=color)))
+        self.unlock_button.setIcon(QIcon(qta.icon('fa5s.unlock-alt', color=color)))
         self.unlock_button.setIconSize(QSize(32, 32))
         self.addressamount_refresh_button.setIcon(qta.icon('mdi.refresh', color=color))
         self.addressamount_refresh_button.setIconSize(QSize(24, 24))
@@ -187,7 +161,7 @@ class GuiStyle(Ui_MainWindow):
         self.stats_calculate_pushButton.setIcon(qta.icon('mdi.calculator-variant-outline', color=color))
         self.stats_calculate_pushButton.setIconSize(QSize(24, 24))
         self.export_earning_table_button.setIcon(qta.icon('mdi.file-export-outline', color=color))
-        self.export_earning_table_button.setIconSize(QSize(24,24))
+        self.export_earning_table_button.setIconSize(QSize(24, 24))
         self.earnings_search_button.setIcon(qta.icon('fa.search', color=color))
         self.earnings_search_button.setIconSize(QSize(24, 24))
         # Market
@@ -540,31 +514,25 @@ class GuiStyle(Ui_MainWindow):
         self.actionQuit.setFont(font)
         self.actionAbout.setFont(font)
         self.actionLogout.setFont(font)
-        self.actionAppearances.setFont(font)
+        # self.actionAppearances.setFont(font)
+        self.actionToolbar.setFont(font)
+        self.actionPreferances.setFont(font)
         self.actionConsole.setFont(font)
         self.actionCheck_for_Update.setFont(font)
-        self.actionLanguage_Selection.setFont(font)
+        # self.actionLanguage_Selection.setFont(font)
         self.menuHelp.setFont(font)
         self.actionSee_Log_File.setFont(font)
         self.actionSee_chain_Log_File.setFont(font)
         # smaller fontsize
-        font.setPointSize(size-2)
+        font.setPointSize(size - 2)
         self.login_message_label.setFont(font)
         self.bottom_message_label.setFont(font)
         self.last_update_label.setFont(font)
         self.mining_button.setFont(font)
         self.staking_button.setFont(font)
-        # set config fontsize
-        #configuration.ApplicationConfig().set_key_value('USER', 'fontsize', str(size))
-
-    def get_style(self, s_type):
-        file = open(style_path + '/' + s_type, "r")
-        style = file.read()
-        file.close()
-        return style
 
 
-class ToggleSwitch(QtWidgets.QPushButton):
+class ToggleSwitch(QPushButton):
     def __init__(self, parent=None):
         super().__init__(parent)
 
@@ -580,17 +548,17 @@ class ToggleSwitch(QtWidgets.QPushButton):
         width = 32
         center = self.rect().center()
 
-        painter = QtGui.QPainter(self)
-        painter.setRenderHint(QtGui.QPainter.Antialiasing)
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
         painter.translate(center)
-        painter.setBrush(QtGui.QColor(0, 0, 0))
+        painter.setBrush(QColor(0, 0, 0))
 
-        pen = QtGui.QPen(Qt.black)
+        pen = QPen(Qt.black)
         pen.setWidth(2)
         painter.setPen(pen)
 
         painter.drawRoundedRect(QRect(-width, -radius, 2 * width, 2 * radius), radius, radius)
-        painter.setBrush(QtGui.QBrush(bg_color))
+        painter.setBrush(QBrush(bg_color))
         sw_rect = QRect(-radius, -radius, width + radius, 2 * radius)
         if not self.isChecked():
             sw_rect.moveLeft(-width)
