@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt, QRect, QSize
 from PyQt5.QtGui import QIcon, QFont, QPainter, QBrush, QColor, QPen
 from PyQt5.QtWidgets import QPushButton, QHBoxLayout
-from ui_mainwindow import Ui_MainWindow
+from mainwindow import Ui_MainWindow
 import qtawesome as qta
 
 
