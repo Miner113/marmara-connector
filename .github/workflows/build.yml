@@ -2,9 +2,9 @@ name: Build Marmara Connector
 
 on:
   push:
-    branches: [ master ]
+    branches: [ remove-fbs ]
   pull_request:
-    branches: [ master ]
+    branches: [ remove-fbs ]
 
 jobs:
   build_Debian:
