@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
         with:
-          python-version: "3.6"
+          python-version: "3.8"
       - name: Install dependencies, run fbs and freeze the app
         shell: bash
         run: |
@@ -30,13 +30,13 @@ jobs:
           fbs freeze
           fbs installer
       - name: Upload a Build Artifact (Linux AppImage)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4.0.0
         with:
           path: target/*.deb
           retention-days: 7
       
       - name: Upload a Build Artifact (Linux Portable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4.0.0
         with:
           path: target/MarmaraConnector-*
           retention-days: 7
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
         with:
-          python-version: "3.6.x"
+          python-version: "3.8.x"
       - name: Install dependencies
         shell: powershell
         run: |
@@ -61,13 +61,13 @@ jobs:
           fbs freeze
           fbs installer
       - name: Upload a Build Artifact (Windows exectutable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4.0.0
         with:
           path: .\target\*.exe
           retention-days: 7
       
       - name: Upload a Build Artifact (Windows Portable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4.0.0
         with:
           path: .\target\MarmaraConnector*
           retention-days: 7
