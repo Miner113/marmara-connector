@@ -30,13 +30,13 @@ jobs:
           fbs freeze
           fbs installer
       - name: Upload a Build Artifact (Linux AppImage)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
           path: target/*.deb
           retention-days: 7
       
       - name: Upload a Build Artifact (Linux Portable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
           path: target/MarmaraConnector-*
           retention-days: 7
@@ -61,13 +61,13 @@ jobs:
           fbs freeze
           fbs installer
       - name: Upload a Build Artifact (Windows exectutable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
           path: .\target\*.exe
           retention-days: 7
       
       - name: Upload a Build Artifact (Windows Portable)
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
           path: .\target\MarmaraConnector*
           retention-days: 7
