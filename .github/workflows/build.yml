@@ -8,34 +8,31 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Здесь можно оставить любой современный дистрибутив
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       
       - name: Build and Run in Docker
-        uses: docker://python:3.6
-        with:
-          args: |
-            bash -c "
-            apt update &&
-            apt install -y --no-install-recommends libcurl4-openssl-dev libssl-dev python3-dev python3-pip python3-venv qttools5-dev-tools python3-pyqt5 ruby ruby-dev rubygems build-essential &&
-            gem install --no-document fpm &&
-            pip install --upgrade pip wheel &&
-            pip install -r requirements.txt &&
-            fbs freeze &&
-            fbs installer &&
-            cp target/*.deb $GITHUB_WORKSPACE/ &&
-            cp target/MarmaraConnector-* $GITHUB_WORKSPACE/"
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/app -w /app python:3.6 bash -c "
+          apt update &&
+          apt install -y --no-install-recommends libcurl4-openssl-dev libssl-dev python3-dev python3-pip python3-venv qttools5-dev-tools python3-pyqt5 ruby ruby-dev rubygems build-essential &&
+          gem install --no-document fpm &&
+          pip install --upgrade pip wheel &&
+          pip install -r requirements.txt &&
+          fbs freeze &&
+          fbs installer"
+
       - name: Upload a Build Artifact (Linux AppImage)
         uses: actions/upload-artifact@v4.0.0
         with:
-          path: *.deb
+          path: target/*.deb
           retention-days: 7
       
       - name: Upload a Build Artifact (Linux Portable)
         uses: actions/upload-artifact@v4.0.0
         with:
-          path: MarmaraConnector-*
+          path: target/MarmaraConnector-*
           retention-days: 7
 
   build_Windows:
@@ -57,6 +54,7 @@ jobs:
         run: |
           fbs freeze
           fbs installer
+
       - name: Upload a Build Artifact (Windows executable)
         uses: actions/upload-artifact@v4.0.0
         with:
