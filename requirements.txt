@@ -1,4 +1,4 @@
-fbs==1.0.3
+fbs==1.0.6
 qrcode==7.2
 paramiko==2.7.2
 protobuf==3.0.0
